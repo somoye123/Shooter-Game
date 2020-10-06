@@ -1,5 +1,8 @@
 import "phaser";
 import Player from "../Entities/Player";
+import ChaserShip from "../Entities/ChaserShip";
+import GunShip from "../Entities/GunShip";
+import CarrierShip from "../Entities/CarrierShip";
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -51,6 +54,77 @@ export default class GameScene extends Phaser.Scene {
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
+    this.enemies = this.add.group();
+    this.enemyLasers = this.add.group();
+    this.playerLasers = this.add.group();
+    this.time.addEvent({
+      delay: 1000,
+      callback: function () {
+        var enemy = null;
+
+        if (Phaser.Math.Between(0, 10) >= 3) {
+          enemy = new GunShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0
+          );
+        } else if (Phaser.Math.Between(0, 10) >= 5) {
+          if (this.getEnemiesByType("ChaserShip").length < 5) {
+            enemy = new ChaserShip(
+              this,
+              Phaser.Math.Between(0, this.game.config.width),
+              0
+            );
+          }
+        } else {
+          enemy = new CarrierShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0
+          );
+        }
+
+        if (enemy !== null) {
+          enemy.setScale(Phaser.Math.Between(10, 20) * 0.1);
+          this.enemies.add(enemy);
+        }
+      },
+      callbackScope: this,
+      loop: true,
+    });
+    this.physics.add.collider(this.playerLasers, this.enemies, function (
+      playerLaser,
+      enemy
+    ) {
+      if (enemy) {
+        if (enemy.onDestroy !== undefined) {
+          enemy.onDestroy();
+        }
+
+        enemy.explode(true);
+        playerLaser.destroy();
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemies, function (
+      player,
+      enemy
+    ) {
+      if (!player.getData("isDead") && !enemy.getData("isDead")) {
+        player.explode(false);
+        enemy.explode(true);
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemyLasers, function (
+      player,
+      laser
+    ) {
+      if (!player.getData("isDead") && !laser.getData("isDead")) {
+        player.explode(false);
+        laser.destroy();
+      }
+    });
     this.anims.create({
       key: "sprEnemy0",
       frames: this.anims.generateFrameNumbers("sprEnemy0"),
@@ -88,19 +162,101 @@ export default class GameScene extends Phaser.Scene {
     };
   }
 
-  update() {
-    this.player.update();
+  getEnemiesByType(type) {
+    var arr = [];
+    for (var i = 0; i < this.enemies.getChildren().length; i++) {
+      var enemy = this.enemies.getChildren()[i];
+      if (enemy.getData("type") == type) {
+        arr.push(enemy);
+      }
+    }
+    return arr;
+  }
 
-    if (this.keyW.isDown) {
-      this.player.moveUp();
-    } else if (this.keyS.isDown) {
-      this.player.moveDown();
+  update() {
+    if (!this.player.getData("isDead")) {
+      this.player.update();
+      const cursors = this.input.keyboard.createCursorKeys();
+
+      if (cursors.up.isDown) {
+        this.player.moveUp();
+        this.player.anims.play("up", true);
+      } else if (cursors.down.isDown) {
+        this.player.moveDown();
+        this.player.anims.play("up", true);
+      }
+
+      if (cursors.left.isDown) {
+        this.player.moveLeft();
+        this.player.anims.play("left", true);
+        this.player.flipX = false;
+      } else if (cursors.right.isDown) {
+        this.player.moveRight();
+        this.player.anims.play("left", true);
+        this.player.flipX = true;
+      }
+
+      if (cursors.space.isDown) {
+        this.player.setData("isShooting", true);
+        this.player.anims.play("up", true);
+      } else {
+        this.player.setData(
+          "timerShootTick",
+          this.player.getData("timerShootDelay") - 1
+        );
+        this.player.setData("isShooting", false);
+      }
     }
 
-    if (this.keyA.isDown) {
-      this.player.moveLeft();
-    } else if (this.keyD.isDown) {
-      this.player.moveRight();
+    for (var i = 0; i < this.enemies.getChildren().length; i++) {
+      var enemy = this.enemies.getChildren()[i];
+
+      enemy.update();
+      if (
+        enemy.x < -enemy.displayWidth ||
+        enemy.x > this.game.config.width + enemy.displayWidth ||
+        enemy.y < -enemy.displayHeight * 4 ||
+        enemy.y > this.game.config.height + enemy.displayHeight
+      ) {
+        if (enemy) {
+          if (enemy.onDestroy !== undefined) {
+            enemy.onDestroy();
+          }
+
+          enemy.destroy();
+        }
+      }
+    }
+    for (var i = 0; i < this.enemyLasers.getChildren().length; i++) {
+      var laser = this.enemyLasers.getChildren()[i];
+      laser.update();
+
+      if (
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
+      ) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
+
+    for (var i = 0; i < this.playerLasers.getChildren().length; i++) {
+      var laser = this.playerLasers.getChildren()[i];
+      laser.update();
+
+      if (
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
+      ) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
     }
   }
 }
