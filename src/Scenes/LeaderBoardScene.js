@@ -5,8 +5,7 @@ import "phaser";
 // import { getScores } from '../score/scoreApi';
 
 import { getData } from "../apiData";
-import '@babel/polyfill';
-
+import "@babel/polyfill";
 
 export default class LeaderboardScene extends Phaser.Scene {
   constructor() {
@@ -47,49 +46,44 @@ export default class LeaderboardScene extends Phaser.Scene {
       this.BtnBack.setTexture("Btnback");
     });
 
-    const displayData = (array) => {
-      const table = document.createElement("table");
-      table.innerHTML = `<thead>
-                        <tr>
-                        <th> <span> RANKING </span> </th>
-                        <th> <span> NAME </span> </th>
-                        <th> <span> SCORE </span> </th>
-                        </tr>
-                        </thead>
-                        <tbody id='table-body'></tbody>`;
-      table.className = "table-scores";
-
-      this.add.dom(140, 200, table);
-
-      let listContent = "";
-
-      array.forEach((ele, index) => {
-        const listBody = document.getElementById("table-body");
-        listContent += `<tr>
-                      <th scope='row'>${index + 1} </th>
-                      <td>${ele.user}</td>
-                      <td>${ele.score}</td>                   
-                      </tr>`;
-
-        listBody.innerHTML = listContent;
+    getData().then((scores) => {
+      const arr = [];
+      scores.map((user, i) => {
+        arr.push(
+          `${(i + 1).toString()}. ${
+            user[0]
+          }                      ${user[1].toString()}`
+        );
+        return true;
       });
-    };
 
-    const sortData = (x) => {
-      const newArray = x;
-      const sliceArray = newArray
-        .sort((x, y) => y.score - x.score)
-        .slice(0, 10);
-      displayData(sliceArray);
-    };
+      const graphics = this.add.graphics();
+      graphics.fillRect(235, 133, 320, 250);
 
-    const waitForData = () => {
-      getData()
-        .then((x) => {
-          sortData(x);
+      const mask = new Phaser.Display.Masks.GeometryMask(this, graphics);
+
+      const text = this.add
+        .text(250, 150, arr, {
+          fontFamily: "Arial",
+          color: "#fff",
+          wordWrap: { width: 310 },
         })
-        .catch(() => "Something didnt work");
-    };
-    waitForData();
+        .setOrigin(0);
+
+      text.setMask(mask);
+
+      const zone = this.add
+        .zone(100, 300, 320, 256)
+        .setOrigin(1)
+        .setInteractive();
+
+      zone.on("pointermove", (pointer) => {
+        if (pointer.isDown) {
+          text.y += pointer.velocity.y / 10;
+
+          text.y = Phaser.Math.Clamp(text.y, -400, 300);
+        }
+      });
+    });
   }
 }
