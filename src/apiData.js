@@ -1,6 +1,7 @@
+import 'regenerator-runtime';
+const apiKey = 'MZYdBOJCBWXGCPFDVxaD';
 
 async function postData(inputName) {
-    const apiKey = '0L4QTVGS6HGPT7OMcNjp';
     const fetchingURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`;
   
     const data = {
@@ -27,7 +28,6 @@ async function postData(inputName) {
   }
   
   async function getData() {
-    const apiKey = '0L4QTVGS6HGPT7OMcNjp';
     const fetchingURL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`;
     try {
       const response = await fetch(fetchingURL, {
