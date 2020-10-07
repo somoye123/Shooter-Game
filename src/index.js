@@ -9,7 +9,8 @@ import OptionsScene from "./Scenes/OptionsScene";
 import CreditsScene from "./Scenes/CreditsScene";
 import GameOverScene from "./Scenes/GameOverScene";
 import Model from "./Model";
-
+import { setUser } from './user/user';
+import './user/dom';
 class Game extends Phaser.Game {
   constructor() {
     super(config);
@@ -27,4 +28,7 @@ class Game extends Phaser.Game {
   }
 }
 
-window.game = new Game();
+export default (user) => {
+  setUser(user);
+  window.game = new Game();
+};
