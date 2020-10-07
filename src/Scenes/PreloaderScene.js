@@ -100,7 +100,9 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio("sndExplode0", "../src/assets/sndExplode0.wav");
     this.load.audio("sndExplode1", "../src/assets/sndExplode1.wav");
     this.load.audio("sndLaser", "../src/assets/sndLaser.wav");
-
+    this.load.image("highScore", "../src/assets/highscore.png");
+    this.load.image("Btnback", "../src/assets/btnBack.png");
+    this.load.image("Btnbackhover", "../src/assets/btnBackHover.png");
     this.load.image("blueButton1", "../src/assets/ui/blue_button02.png");
     this.load.image("blueButton2", "../src/assets/ui/blue_button03.png");
     this.load.image("phaserLogo", "../src/assets/logo.png");
@@ -123,15 +125,12 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     this.load.audio("bgMusic", ["../src/assets/TownTheme.mp3"]);
 
-
-
-
-    this.load.image('gameOverTitle', '../src/assets/gameover.png');
-    this.load.image('sprImg', '../src/assets/catsad2.png');
-    this.load.image('BtnPlay', '../src/assets/BtnPlay.png');
-    this.load.image('BtnPlayHover', '../src/assets/BtnPlayHover.png');
-    this.load.image('BtnPlayDown', '../src/assets/BtnPlayDown.png');
-    this.load.audio('gameOverMusic', '../src/assets/musicGameOver.mp3');
+    this.load.image("gameOverTitle", "../src/assets/gameover.png");
+    this.load.image("sprImg", "../src/assets/catsad2.png");
+    this.load.image("BtnPlay", "../src/assets/BtnPlay.png");
+    this.load.image("BtnPlayHover", "../src/assets/BtnPlayHover.png");
+    this.load.image("BtnPlayDown", "../src/assets/BtnPlayDown.png");
+    this.load.audio("gameOverMusic", "../src/assets/musicGameOver.mp3");
   }
 
   ready() {
