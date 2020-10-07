@@ -122,6 +122,16 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 70,
     });
     this.load.audio("bgMusic", ["../src/assets/TownTheme.mp3"]);
+
+
+
+
+    this.load.image('gameOverTitle', '../src/assets/gameover.png');
+    this.load.image('sprImg', '../src/assets/catsad2.png');
+    this.load.image('BtnPlay', '../src/assets/BtnPlay.png');
+    this.load.image('BtnPlayHover', '../src/assets/BtnPlayHover.png');
+    this.load.image('BtnPlayDown', '../src/assets/BtnPlayDown.png');
+    this.load.audio('gameOverMusic', '../src/assets/musicGameOver.mp3');
   }
 
   ready() {
