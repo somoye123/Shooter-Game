@@ -46,6 +46,13 @@ export default class GameScene extends Phaser.Scene {
       "sprPlayer"
     );
 
+    this.yourScore = this.add.text(40, 600, "Score: 0", {
+      fontFamily: "monospace",
+      fontSize: 20,
+      fontStyle: "bold",
+      color: "#ffffff",
+    });
+
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -92,19 +99,23 @@ export default class GameScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
-    this.physics.add.collider(this.playerLasers, this.enemies, function (
-      playerLaser,
-      enemy
-    ) {
-      if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
+    this.physics.add.collider(
+      this.playerLasers,
+      this.enemies,
+      (playerLaser, enemy) => {
+        if (enemy) {
+          if (enemy.onDestroy !== undefined) {
+            enemy.onDestroy();
+          }
+          enemy.explode(true);
+          enemy.body = null;
+          playerLaser.destroy();
+          this.player.updateScore(enemy);
+          this.yourScore.setText(`Score: ${this.player.getData("score")}`);
+          this.player.updateScoretoLocal(this.player.getData("score"));
         }
-
-        enemy.explode(true);
-        playerLaser.destroy();
       }
-    });
+    );
 
     this.physics.add.overlap(this.player, this.enemies, function (
       player,
