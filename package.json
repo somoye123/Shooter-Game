@@ -1,7 +1,7 @@
 {
-  "name": "phaser3-project-template",
+  "name": "shooter-game",
   "version": "1.1.0",
-  "description": "A Phaser 3 Project Template",
+  "description": "A space shooter implemented with phaser",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
@@ -10,15 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
+    "url": "git+https://github.com/somoye123/Shooter-Game.git"
   },
-  "author": "Richard Davey <rdavey@gmail.com> (http://www.photonstorm.com)",
+  "author": "Somoye Ayotunde",
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
-  "bugs": {
-    "url": "https://github.com/photonstorm/phaser3-project-template/issues"
-  },
-  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
