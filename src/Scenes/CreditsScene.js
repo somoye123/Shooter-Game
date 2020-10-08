@@ -8,10 +8,6 @@ export default class CreditsScene extends Phaser.Scene {
     super('Credits');
   }
 
-  preload() {
-    this.load.image('background', '../src/assets/forest-bg.png');
-  }
-
   create() {
     this.add.image(500, 400, 'background');
 
