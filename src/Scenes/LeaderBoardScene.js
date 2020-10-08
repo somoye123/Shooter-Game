@@ -1,9 +1,5 @@
 /* eslint-disable no-undef,import/extensions */
 import 'phaser';
-// import config from '../Config/config';
-// import Button from '../Objects/Button';
-// import { getScores } from '../score/scoreApi';
-
 import { getData } from '../apiData';
 import '@babel/polyfill';
 
