@@ -1,11 +1,14 @@
-const merge = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const base = require('./base');
+/* eslint-disable import/no-extraneous-dependencies */
+
+const merge = require("webpack-merge");
+const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const base = require("./base");
 
 module.exports = merge(base, {
-  mode: 'production',
+  mode: "production",
   output: {
-    filename: 'bundle.min.js',
+    filename: "bundle.min.js",
   },
   devtool: false,
   performance: {
@@ -23,4 +26,9 @@ module.exports = merge(base, {
       }),
     ],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: "./src/assets", to: "src/assets" }],
+    }),
+  ],
 });
