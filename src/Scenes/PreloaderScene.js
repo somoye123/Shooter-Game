@@ -102,24 +102,15 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('Btnbackhover', '../src/assets/btnBackHover.png');
     this.load.image('blueButton1', '../src/assets/ui/blue_button02.png');
     this.load.image('blueButton2', '../src/assets/ui/blue_button03.png');
-    this.load.image('phaserLogo', '../src/assets/logo.png');
     this.load.image('box', '../src/assets/ui/grey_box.png');
     this.load.image('checkedBox', '../src/assets/ui/blue_boxCheckmark.png');
-    this.load.image('platform', '../src/assets/ground.png');
+    // this.load.image('platform', '../src/assets/ground.png');
     this.load.image('background', '../src/assets/forest-bg.png');
-    this.load.image('game-over', '../src/assets/game-over.png');
-    this.load.spritesheet('player', '../src/assets/player.png', {
-      frameWidth: 24,
-      frameHeight: 48,
-    });
-    this.load.spritesheet('coin', '../src/assets/star.png', {
-      frameWidth: 20,
-      frameHeight: 20,
-    });
-    this.load.spritesheet('fire', '../src/assets/fire.png', {
-      frameWidth: 40,
-      frameHeight: 70,
-    });
+    // this.load.image('game-over', '../src/assets/game-over.png');
+    // this.load.spritesheet('player', '../src/assets/player.png', {
+    //   frameWidth: 24,
+    //   frameHeight: 48,
+    // });
     this.load.audio('bgMusic', ['../src/assets/TownTheme.mp3']);
 
     this.load.image('gameOverTitle', '../src/assets/gameover.png');
