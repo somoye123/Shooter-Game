@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle, import/extensions */
 import Phaser from "phaser";
 import config from "./Config/config";
-import Button from "./Objects/Button";
 import GameScene from "./Scenes/GameScene";
 import PreloaderScene from "./Scenes/PreloaderScene";
 import LeaderboardScene from "./Scenes/LeaderboardScene";
