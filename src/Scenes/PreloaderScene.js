@@ -111,7 +111,7 @@ export default class PreloaderScene extends Phaser.Scene {
     //   frameWidth: 24,
     //   frameHeight: 48,
     // });
-    this.load.audio('bgMusic', ['../src/assets/TownTheme.mp3']);
+    this.load.audio('bgMusic', '../src/assets/TownTheme.mp3');
 
     this.load.image('gameOverTitle', '../src/assets/gameover.png');
     this.load.image('sprImg', '../src/assets/destroyedShip.png');
