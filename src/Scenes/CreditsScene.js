@@ -15,7 +15,7 @@ export default class CreditsScene extends Phaser.Scene {
   create() {
     this.add.image(500, 400, 'background');
 
-    this.title = this.add.text(0, 0, 'Spartan Shoot', {
+    this.title = this.add.text(0, 0, 'Guns Of Boom', {
       fontSize: '40px',
       fontStyle: 'bold',
       fill: '#fff',
@@ -44,7 +44,7 @@ export default class CreditsScene extends Phaser.Scene {
       fontSize: '26px',
       fill: '#fff',
     });
-    this.creditsGDA = this.add.text(0, 0, 'https://www.emanueleferonato.com', {
+    this.creditsGDA = this.add.text(0, 0, 'https://learn.yorkcs.com', {
       fontSize: '26px',
       fill: '#fff',
     });
@@ -83,7 +83,6 @@ export default class CreditsScene extends Phaser.Scene {
     this.creditsPhaser.displayOriginY = -50;
     this.creditsGDA.displayOriginY = -90;
     this.creditsOGA.displayOriginY = -130;
-
 
     this.menuButton = new Button(
       this,

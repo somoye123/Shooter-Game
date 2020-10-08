@@ -57,13 +57,8 @@ export default class LeaderboardScene extends Phaser.Scene {
         return true;
       });
 
-      const graphics = this.add.graphics();
-      graphics.fillRect(235, 133, 320, 250);
-
-      const mask = new Phaser.Display.Masks.GeometryMask(this, graphics);
-
       const text = this.add
-        .text(250, 150, arr, {
+        .text(280, 190, arr, {
           fontFamily: 'Arial',
           color: '#fff',
           wordWrap: { width: 310 },

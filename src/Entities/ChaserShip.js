@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
 import Phaser from 'phaser';
 import Entity from './Entity';
-import EnemyLaser from './EnemyLaser';
 
 export default class ChaserShip extends Entity {
   constructor(scene, x, y) {
@@ -12,32 +10,7 @@ export default class ChaserShip extends Entity {
       CHASE: 'CHASE',
     };
     this.state = this.states.MOVE_DOWN;
-
-    // this.play('sprEnemy0');
-    // this.shootTimer = this.scene.time.addEvent({
-    //   delay: 1000,
-    //   callback() {
-    //     const laser = new EnemyLaser(
-    //       this.scene,
-    //       this.x,
-    //       this.y,
-    //     );
-    //     laser.setScale(2);
-    //     this.scene.enemyLasers.add(laser);
-    //   },
-    //   callbackScope: this,
-    //   loop: true,
-    // });
-    // this.play('sprEnemy0');
   }
-
-  // onDestroy() {
-  //   if (this.shootTimer !== undefined) {
-  //     if (this.shootTimer) {
-  //       this.shootTimer.remove(false);
-  //     }
-  //   }
-  // }
 
   update() {
     if (!this.getData('isDead') && this.scene.player) {

@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-import 'phaser';
+import Phaser from 'phaser';
 import { postData } from '../apiData';
 
 import { getUser } from '../user/user';
@@ -31,7 +30,7 @@ class SceneGameOver extends Phaser.Scene {
     );
 
     this.restartTitle = this.add.text(
-      this.game.config.width * 0.440,
+      this.game.config.width * 0.44,
       this.game.config.height * 0.825,
       'RESTART',
       {
@@ -45,7 +44,7 @@ class SceneGameOver extends Phaser.Scene {
 
     this.score = this.add.text(
       this.game.config.width * 0.4,
-      360,
+      450,
       `Your Score is: ${localStorage.getItem('score')}`,
       {
         fontFamily: 'monospace',

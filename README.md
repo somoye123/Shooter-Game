@@ -1,122 +1,105 @@
 # Javascript-Capstone Project: Build a Shooter Game
 
-<div align="center"><img src="assets/logo2.png"></div>
-<div align="center"><img src="assets/readmeLogo.png"></div>
+<h1 align="center">
+  Guns Of Boom
+</h1>
 
-## Table of Contents
+> Final project in the Microverse JavaScript Curriculum
 
-- [About the Project](#about-the-project)
-- [The Game](#the-game)
-  - [Inspiration](#inspiration)
-  - [How to Play](#how-to-play)
-  - [Installation](#installation)
-  - [Characters](#characters)
-  - [Scenes](#scenes)
-- [Technologies used](#technologies-used)
-- [Author](#author)
-- [Show your Support](#show-your-support)
-- [Potential Future features](#potential-features)
-- [Acknowledgments](#acknowledgments)
-
-<!-- ABOUT THE PROJECT -->
+Implementation of a Space Shooter Game built with the [Phaser 3](https://phaser.io/phaser3) framework
 
 ## About The Project
 
-The objective of this project was to design and build a platform game like the one in [Space Shooter Game](https://learn.yorkcs.com/category/tutorials/gamedev/phaser-3/build-a-space-shooter-with-phaser-3/) using Phaser and Javascript among other technologies.
+The main objective of this project was to design and build a platform game. The basics of the game are used from the [Space Shooter Game](https://learn.yorkcs.com/category/tutorials/gamedev/phaser-3/build-a-space-shooter-with-phaser-3/) using Phaser and Javascript among other technologies.
 
 Live version of the project: [Live version](https://cat-gun.netlify.app/)
 
-Project Link: [Javascript-Capstone](https://github.com/mcastorena0316/Javascript-Capstone)
-
-<!-- THE GAME -->
+Project Link: [Javascript-Capstone](https://github.com/somoye123/Shooter-Game)
 
 ## The game
 
-In this never-ending game, you will face 3 different enemies at random times, and you have to use your laser to make them explode. Every enemy gives you a different score, and you need to avoid getting hit by their lasers or overlap with one of them. Every moment one of these events occurs, you will lose one life.
-
-You have 7 lives, after this, you will lose, and be redirected to a Game Over screen where you can submit your name and check for the highest scores.
-
-<!-- INSPIRATION -->
-
-### Inspiration
-
-This game is inspired in my cat "Benito" and the villains include one of his worst enemies: dogs, snakes (and reptiles in general), and the representation of my husband who is always trying to hug him (which he doesn't like at all).
-
-<!-- HOW TO PLAY -->
+In this never-ending game, you will face different enemies at random times, and you have to use your laser to make them explode. Every enemy gives you a different score point, and you need to avoid getting hit by their lasers or overlap with one of them. When the game is over , the user can restart the game.
 
 ### How to Play
 
-You can move around the screen using the arrow keys <div ><img src="assets/keys.png"></div> for moving around and use the Space Bar <div ><img src="assets/spaceBar.png"></div> to shoot whenever you see a bad guy.
+- Input your name on the first page and click the submit button, There is a menu on the next page which are Play, Options, Credits and Scoreboard. You can disable the sound in the options menu. Click on the play menu to start your game. You can move around the screen using the arrow keys and use the Space Bar to shoot whenever you see an enemy. Happy gaming!
 
-<!-- INSTALLATION -->
+#### Get a local copy
+
+_npm required_ - [get npm](https://www.npmjs.com/get-npm)
 
 ### Installation
 
-You can always use the [live version](https://cat-gun.netlify.app/) to play right away or install it locally using these steps:
+You can always use the [live version](https://endless-run.netlify.app/) to play right away or install it locally using these steps:
 
-#### Clone my repository
+**Clone the repository by running this command in your terminal**
 
-`$ https://github.com/mcastorena0316/Javascript-Capstone`
+```
+git clone https://github.com/somoye123/Shooter-Game
+```
 
-#### Go to my project's folder
+**Navigate into the newly created folder**
 
-`$ cd Javascript-Capstone`
+```
+cd Shooter-Game
+```
 
 #### Get the dependencies needed for the game
 
 `$ npm install`
 
-#### Start the server and the fun
+#### Start the server
 
-`$ npm run dev`
+`$ npm run start`
 
-<!-- CHARACTERS -->
+**Visit this link to see the game in your browser**
 
-### Characters
+```
+http://localhost:8080/
+```
 
-- Player: <div ><img src="assets/benitoPlayer.png"></div>
-  Benito the Cat: He can move at 4 directions, and use the space bar to shoot his enemies. Like all cats, he has 7 lives.
+**Run Jest tests**
 
-- Enemy 1 : <div ><img src="assets/dogEnemy.png"></div>
-  Angry Dog: it will appear randomly shooting lasers. You receive +15 every time you make it explode.
-
-- Enemy 2: <div ><img src="assets/snakeEnemy.png"></div>
-  Snake: it will appear at a random velocity and location shooting lasers. You will receive +10 points every time you shoot one successfully
-
-- Enemy 3: <div ><img src="assets/humanEnemy.png"></div>
-  Human Chaser: He will chase you through all the game. You will receive +25 points every time you destroy one.
-
-<!-- SCENES -->
+```
+npm run test
+```
 
 ### Scenes
 
-- Menu
+**Landing Scene**
 
-<div><img src="assets/menuScene.png"></div>
+<p align="center">
+  <img src="./src/assets/landing-scene.PNG">
+</p>
 
-- About
+**Game Scene**
 
-<div><img src="assets/aboutScene.png"></div>
+<p align="center">
+  <img src="./src/assets/game-scene.png">
+</p>
 
-- High Scores
+**Credits Scene**
 
-<div><img src="assets/scoreScene.png"></div>
+<p align="center">
+  <img src="./src/assets/credits-scene.png">
+</p>
 
-- Main
+**Leaderboard Scene**
 
-<div><img src="assets/playScene.png"></div>
+<p align="center">
+  <img src="./src/assets/leaderboard-scene.png">
+</p>
 
-- Game Over
+**Game Over Scene**
 
-<div><img src="assets/gameOverScene.png"></div>
-
-<!-- TECNOLOGIES USED -->
+<p align="center">
+  <img src="./src/assets/game-over-scene.png">
+</p>
 
 ## Technologies used
 
-- HTML5
+- HTML5/CSS
 - Phaser 3
-- SCSS
 - Webpack
 - Javascript
 - Eslint
@@ -125,41 +108,28 @@ You can always use the [live version](https://cat-gun.netlify.app/) to play righ
 - [Netlify](https://www.netlify.com/) for deployment
 - [Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) for high scores
 
-<!--AUTHOR -->
-
 ## Author
 
-Melissa Castorena
+👤 **Somoye Ayotunde**
 
-- Github: [@mcastorena0316](https://github.com/mcastorena0316)
-- Linkedin: [Melissa Castorena](https://www.linkedin.com/in/melissa-castorena/)
+- Github:[@somoye123](https://github.com/somoye123)
+- Twitter:[@ayotunde_197](https://twitter.com/ayotunde_197)
+- LinkedIn:[Somoye Ayotunde](https://www.linkedin.com/in/somoye-ayotunde-03a471161)
+- Mail: [somoye.ayotunde@gmail.com](somoye.ayotunde@gmail.com)
 
-<!-- SHOW YOUR SUPPORT -->
+## Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/somoye123/Shooter-Game/issues).
 
 ## Show your Support
 
-Give a star if you like this project!
-
-<!-- POTENTIAL FEATURES -->
-
-## Potential features
-
-- Create a mobile version.
-- Increase the difficulty as the game moves on.
-- Make opponents have a higher speed or/and longer live.
-
-<!-- ACKNOWLEDGEMENTS -->
+Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
 - [Microverse](https://www.microverse.org/)
 - [Phaser](https://phaser.io/)
 - [OpenGameArt](https://opengameart.org/)
-
-* Assets by:
-  - [Justin Dalessandro(ColdOneK)](https://opengameart.org/users/coldonek)
-  - [Karin Jane](https://www.artstation.com/jkshade)
-  - [Flaming Text](https://flamingtext.com/)
-  - [Kenney.nl](www.kenney.nl)
-  - [Cleyton Kauffman](https://soundcloud.com/cleytonkauffma)
-  - [Mobeyee](mobeyee.com)
+- [https://learn.yorkcs.com/](https://learn.yorkcs.com/)
