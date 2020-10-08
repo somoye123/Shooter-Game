@@ -71,7 +71,7 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    // this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     this.load.image('sprBg0', '../src/assets/sprBg0.png');
     this.load.image('sprBg1', '../src/assets/sprBg1.png');
