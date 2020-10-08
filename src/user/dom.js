@@ -14,7 +14,7 @@ text.classList.add('input-text');
 input.classList.add('input');
 submit.classList.add('submit');
 
-text1.innerHTML = 'TEMPLE RUN';
+text1.innerHTML = 'GUNS OF BOOM';
 text.innerHTML = 'Please enter your name';
 input.placeholder = 'Name...';
 submit.innerHTML = 'Start';

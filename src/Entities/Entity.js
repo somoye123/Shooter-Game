@@ -1,4 +1,4 @@
-import "phaser";
+import 'phaser';
 
 export default class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key, type) {
@@ -6,14 +6,14 @@ export default class Entity extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.scene.add.existing(this);
     this.scene.physics.world.enableBody(this, 0);
-    this.setData("type", type);
-    this.setData("isDead", false);
+    this.setData('type', type);
+    this.setData('isDead', false);
   }
 
   explode(canDestroy) {
-    if (!this.getData("isDead")) {
-      this.setTexture("sprExplosion");
-      this.play("sprExplosion").setScale(0.4);
+    if (!this.getData('isDead')) {
+      this.setTexture('sprExplosion');
+      this.play('sprExplosion').setScale(0.4);
       this.scene.sfx.explosions[
         Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)
       ].play();
@@ -28,7 +28,7 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.body.setVelocity(0, 0);
 
       this.on(
-        "animationcomplete",
+        'animationcomplete',
         () => {
           if (canDestroy) {
             this.destroy();
@@ -36,10 +36,10 @@ export default class Entity extends Phaser.GameObjects.Sprite {
             this.setVisible(false);
           }
         },
-        this
+        this,
       );
 
-      this.setData("isDead", true);
+      this.setData('isDead', true);
     }
   }
 }

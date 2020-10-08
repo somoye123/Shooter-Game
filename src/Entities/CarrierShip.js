@@ -1,17 +1,13 @@
 // eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-import Phaser from "phaser";
-import Entity from "./Entity";
+import Phaser from 'phaser';
+import Entity from './Entity';
 import EnemyLaser from './EnemyLaser';
 
 export default class CarrierShip extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, "sprEnemy2", "CarrierShip");
-    this.play("sprEnemy2");
+    super(scene, x, y, 'sprEnemy2', 'CarrierShip');
+    this.play('sprEnemy2');
     this.body.velocity.y = Phaser.Math.Between(50, 100);
-
-
-
-
 
 
     // this.shootTimer = this.scene.time.addEvent({

@@ -1,12 +1,12 @@
-import "phaser";
+import 'phaser';
 
 export default {
   type: Phaser.AUTO,
-  width: 480,
-  height: 640,
-  backgroundColor: "black",
+  width: 900,
+  height: 800,
+  backgroundColor: 0x34495e,
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       gravity: { x: 0, y: 0 },
     },

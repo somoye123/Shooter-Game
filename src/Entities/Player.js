@@ -1,53 +1,48 @@
 // eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-import Phaser from "phaser";
-import Entity from "./Entity";
-import PlayerLaser from "./PlayerLaser";
-import setScoreToStore from "../localStorage";
+import Phaser from 'phaser';
+import Entity from './Entity';
+import PlayerLaser from './PlayerLaser';
+import setScoreToStore from '../localStorage';
 
 export default class Player extends Entity {
   constructor(scene, x, y, key) {
-    super(scene, x, y, key, "Player");
-    this.setData("speed", 200);
-    this.play("sprPlayer");
-    this.setData("isShooting", false);
-    this.setData("timerShootDelay", 10);
-    this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
-    this.setData("score", 0);
+    super(scene, x, y, key, 'Player');
+    this.setData('speed', 200);
+    this.play('sprPlayer');
+    this.setData('isShooting', false);
+    this.setData('timerShootDelay', 10);
+    this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
+    this.setData('score', 0);
   }
 
   moveUp() {
-    this.body.velocity.y = -this.getData("speed");
+    this.body.velocity.y = -this.getData('speed');
   }
 
   moveDown() {
-    this.body.velocity.y = this.getData("speed");
+    this.body.velocity.y = this.getData('speed');
   }
 
   moveLeft() {
-    this.body.velocity.x = -this.getData("speed");
+    this.body.velocity.x = -this.getData('speed');
   }
 
   moveRight() {
-    this.body.velocity.x = this.getData("speed");
+    this.body.velocity.x = this.getData('speed');
   }
 
-  //   updateLifes() {
-  //     this.setData('health', this.getData('health') - 1);
-  //     this.scene.sfx.attacked.play();
-  //   }
-
   updateScore(enemy) {
-    if (enemy.getData("type") === "CarrierShip") {
-      this.setData("score", this.getData("score") + 25);
-    } else if (enemy.getData("type") === "ChaserShip") {
-      this.setData("score", this.getData("score") + 15);
+    if (enemy.getData('type') === 'CarrierShip') {
+      this.setData('score', this.getData('score') + 25);
+    } else if (enemy.getData('type') === 'ChaserShip') {
+      this.setData('score', this.getData('score') + 15);
     } else {
-      this.setData("score", this.getData("score") + 10);
+      this.setData('score', this.getData('score') + 10);
     }
   }
 
   updateScoretoLocal() {
-    setScoreToStore(this.getData("score"));
+    setScoreToStore(this.getData('score'));
   }
 
   update() {
@@ -56,16 +51,16 @@ export default class Player extends Entity {
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
     this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 
-    if (this.getData("isShooting")) {
-      if (this.getData("timerShootTick") < this.getData("timerShootDelay")) {
-        this.setData("timerShootTick", this.getData("timerShootTick") + 1);
+    if (this.getData('isShooting')) {
+      if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
+        this.setData('timerShootTick', this.getData('timerShootTick') + 1);
         const laser = new PlayerLaser(this.scene, this.x, this.y);
         laser.setScale(1.5);
         this.scene.playerLasers.add(laser);
         this.scene.sfx.laser.play({
           volume: 0.8,
         });
-        this.setData("timerShootTick", 0);
+        this.setData('timerShootTick', 0);
       }
     }
   }
@@ -74,7 +69,7 @@ export default class Player extends Entity {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        this.scene.scene.start("GameOver");
+        this.scene.scene.start('GameOver');
       },
       callbackScope: this,
       loop: false,

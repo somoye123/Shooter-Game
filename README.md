@@ -1,55 +1,165 @@
-# Phaser 3 Webpack Project Template
+# Javascript-Capstone Project: Build a Shooter Game
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+<div align="center"><img src="assets/logo2.png"></div>
+<div align="center"><img src="assets/readmeLogo.png"></div>
 
-Loading images via JavaScript module `import` is also supported.
+## Table of Contents
 
-## Requirements
+- [About the Project](#about-the-project)
+- [The Game](#the-game)
+  - [Inspiration](#inspiration)
+  - [How to Play](#how-to-play)
+  - [Installation](#installation)
+  - [Characters](#characters)
+  - [Scenes](#scenes)
+- [Technologies used](#technologies-used)
+- [Author](#author)
+- [Show your Support](#show-your-support)
+- [Potential Future features](#potential-features)
+- [Acknowledgments](#acknowledgments)
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+<!-- ABOUT THE PROJECT -->
 
-## Available Commands
+## About The Project
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+The objective of this project was to design and build a platform game like the one in [Space Shooter Game](https://learn.yorkcs.com/category/tutorials/gamedev/phaser-3/build-a-space-shooter-with-phaser-3/) using Phaser and Javascript among other technologies.
 
-## Writing Code
+Live version of the project: [Live version](https://cat-gun.netlify.app/)
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
+Project Link: [Javascript-Capstone](https://github.com/mcastorena0316/Javascript-Capstone)
 
+<!-- THE GAME -->
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
+## The game
 
-## Customizing Template
+In this never-ending game, you will face 3 different enemies at random times, and you have to use your laser to make them explode. Every enemy gives you a different score, and you need to avoid getting hit by their lasers or overlap with one of them. Every moment one of these events occurs, you will lose one life.
 
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+You have 7 lives, after this, you will lose, and be redirected to a Game Over screen where you can submit your name and check for the highest scores.
 
-  ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
-  ```
+<!-- INSPIRATION -->
 
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+### Inspiration
 
-## Deploying Code
-After you run the `npm run build` command, your code will be built into a single bundle located at 
-`dist/bundle.min.js` along with any other assets you project depended. 
+This game is inspired in my cat "Benito" and the villains include one of his worst enemies: dogs, snakes (and reptiles in general), and the representation of my husband who is always trying to hug him (which he doesn't like at all).
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+<!-- HOW TO PLAY -->
+
+### How to Play
+
+You can move around the screen using the arrow keys <div ><img src="assets/keys.png"></div> for moving around and use the Space Bar <div ><img src="assets/spaceBar.png"></div> to shoot whenever you see a bad guy.
+
+<!-- INSTALLATION -->
+
+### Installation
+
+You can always use the [live version](https://cat-gun.netlify.app/) to play right away or install it locally using these steps:
+
+#### Clone my repository
+
+`$ https://github.com/mcastorena0316/Javascript-Capstone`
+
+#### Go to my project's folder
+
+`$ cd Javascript-Capstone`
+
+#### Get the dependencies needed for the game
+
+`$ npm install`
+
+#### Start the server and the fun
+
+`$ npm run dev`
+
+<!-- CHARACTERS -->
+
+### Characters
+
+- Player: <div ><img src="assets/benitoPlayer.png"></div>
+  Benito the Cat: He can move at 4 directions, and use the space bar to shoot his enemies. Like all cats, he has 7 lives.
+
+- Enemy 1 : <div ><img src="assets/dogEnemy.png"></div>
+  Angry Dog: it will appear randomly shooting lasers. You receive +15 every time you make it explode.
+
+- Enemy 2: <div ><img src="assets/snakeEnemy.png"></div>
+  Snake: it will appear at a random velocity and location shooting lasers. You will receive +10 points every time you shoot one successfully
+
+- Enemy 3: <div ><img src="assets/humanEnemy.png"></div>
+  Human Chaser: He will chase you through all the game. You will receive +25 points every time you destroy one.
+
+<!-- SCENES -->
+
+### Scenes
+
+- Menu
+
+<div><img src="assets/menuScene.png"></div>
+
+- About
+
+<div><img src="assets/aboutScene.png"></div>
+
+- High Scores
+
+<div><img src="assets/scoreScene.png"></div>
+
+- Main
+
+<div><img src="assets/playScene.png"></div>
+
+- Game Over
+
+<div><img src="assets/gameOverScene.png"></div>
+
+<!-- TECNOLOGIES USED -->
+
+## Technologies used
+
+- HTML5
+- Phaser 3
+- SCSS
+- Webpack
+- Javascript
+- Eslint
+- Babel
+- Jest for testing
+- [Netlify](https://www.netlify.com/) for deployment
+- [Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) for high scores
+
+<!--AUTHOR -->
+
+## Author
+
+Melissa Castorena
+
+- Github: [@mcastorena0316](https://github.com/mcastorena0316)
+- Linkedin: [Melissa Castorena](https://www.linkedin.com/in/melissa-castorena/)
+
+<!-- SHOW YOUR SUPPORT -->
+
+## Show your Support
+
+Give a star if you like this project!
+
+<!-- POTENTIAL FEATURES -->
+
+## Potential features
+
+- Create a mobile version.
+- Increase the difficulty as the game moves on.
+- Make opponents have a higher speed or/and longer live.
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- [Phaser](https://phaser.io/)
+- [OpenGameArt](https://opengameart.org/)
+
+* Assets by:
+  - [Justin Dalessandro(ColdOneK)](https://opengameart.org/users/coldonek)
+  - [Karin Jane](https://www.artstation.com/jkshade)
+  - [Flaming Text](https://flamingtext.com/)
+  - [Kenney.nl](www.kenney.nl)
+  - [Cleyton Kauffman](https://soundcloud.com/cleytonkauffma)
+  - [Mobeyee](mobeyee.com)

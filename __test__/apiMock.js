@@ -1,18 +1,17 @@
-import "regenerator-runtime";
+import 'regenerator-runtime';
 
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 const initGame = async () => {
   const title = JSON.stringify({
-    name: "Spartan",
+    name: 'Spartan',
   });
-  const url =
-    "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/";
+  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
   const data = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: title,
   };
@@ -26,15 +25,14 @@ const initGame = async () => {
 const postScore = async (name) => {
   const post = {
     user: name,
-    score: localStorage.getItem("score"),
+    score: localStorage.getItem('score'),
   };
-  const url =
-    "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MZYdBOJCBWXGCPFDVxaD/scores/";
+  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MZYdBOJCBWXGCPFDVxaD/scores/';
   const data = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(post),
   };
@@ -57,10 +55,9 @@ const sortPlayers = (input) => {
 };
 
 const getScores = async () => {
-  const url =
-    "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MZYdBOJCBWXGCPFDVxaD/scores/";
+  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MZYdBOJCBWXGCPFDVxaD/scores/';
   const response = await fetch(url, {
-    mode: "cors",
+    mode: 'cors',
   });
   const result = await response.json();
 
