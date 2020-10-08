@@ -1,58 +1,58 @@
 /* eslint-disable no-undef,import/extensions */
-import 'phaser';
-import config from '../Config/config';
-import Button from '../Objects/Button';
+import "phaser";
+import config from "../Config/config";
+import Button from "../Objects/Button.js";
 
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
-    super('Credits');
+    super("Credits");
   }
 
   create() {
-    this.add.image(500, 400, 'background');
+    this.add.image(500, 400, "background");
 
-    this.title = this.add.text(0, 0, 'Guns Of Boom', {
-      fontSize: '40px',
-      fontStyle: 'bold',
-      fill: '#fff',
+    this.title = this.add.text(0, 0, "Guns Of Boom", {
+      fontSize: "40px",
+      fontStyle: "bold",
+      fill: "#fff",
     });
-    this.madeByText = this.add.text(0, 0, 'Created By Somoye Ayotunde', {
-      fontSize: '28px',
-      fill: '#fff',
+    this.madeByText = this.add.text(0, 0, "Created By Somoye Ayotunde", {
+      fontSize: "28px",
+      fill: "#fff",
     });
     this.descriptionTopText = this.add.text(
       0,
       0,
-      'Microverse Capstone Project',
-      { fontSize: '28px', fill: '#fff' },
+      "Microverse Capstone Project",
+      { fontSize: "28px", fill: "#fff" }
     );
     this.descriptionBottomText = this.add.text(
       0,
       0,
-      'Final Project in the JS Course',
-      { fontSize: '28px', fill: '#fff' },
+      "Final Project in the JS Course",
+      { fontSize: "28px", fill: "#fff" }
     );
-    this.credits = this.add.text(0, 0, 'Credits', {
-      fontSize: '32px',
-      fill: '#fff',
+    this.credits = this.add.text(0, 0, "Credits", {
+      fontSize: "32px",
+      fill: "#fff",
     });
-    this.creditsPhaser = this.add.text(0, 0, 'Phaser 3', {
-      fontSize: '26px',
-      fill: '#fff',
+    this.creditsPhaser = this.add.text(0, 0, "Phaser 3", {
+      fontSize: "26px",
+      fill: "#fff",
     });
-    this.creditsGDA = this.add.text(0, 0, 'https://learn.yorkcs.com', {
-      fontSize: '26px',
-      fill: '#fff',
+    this.creditsGDA = this.add.text(0, 0, "https://learn.yorkcs.com", {
+      fontSize: "26px",
+      fill: "#fff",
     });
-    this.creditsOGA = this.add.text(0, 0, 'OpenGameArt', {
-      fontSize: '26px',
-      fill: '#fff',
+    this.creditsOGA = this.add.text(0, 0, "OpenGameArt", {
+      fontSize: "26px",
+      fill: "#fff",
     });
     this.zone = this.add.zone(
       config.width / 2,
       config.height / 2,
       config.width,
-      config.height,
+      config.height
     );
 
     Phaser.Display.Align.In.Center(this.title, this.zone);
@@ -84,10 +84,10 @@ export default class CreditsScene extends Phaser.Scene {
       this,
       450,
       600,
-      'blueButton1',
-      'blueButton2',
-      'Menu',
-      'Title',
+      "blueButton1",
+      "blueButton2",
+      "Menu",
+      "Title"
     );
   }
 }
