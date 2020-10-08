@@ -1,9 +1,9 @@
 /* eslint-disable no-undef, no-plusplus,radix,import/extensions */
-import "phaser";
+import 'phaser';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
-    super("Preloader");
+    super('Preloader');
   }
 
   init() {
@@ -21,10 +21,10 @@ export default class PreloaderScene extends Phaser.Scene {
     const loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,
-      text: "Loading...",
+      text: 'Loading...',
       style: {
-        font: "20px monospace",
-        fill: "#ffffff",
+        font: '20px monospace',
+        fill: '#ffffff',
       },
     });
     loadingText.setOrigin(0.5, 0.5);
@@ -32,10 +32,10 @@ export default class PreloaderScene extends Phaser.Scene {
     const percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
-      text: "0%",
+      text: '0%',
       style: {
-        font: "18px monospace",
-        fill: "#ffffff",
+        font: '18px monospace',
+        fill: '#ffffff',
       },
     });
     percentText.setOrigin(0.5, 0.5);
@@ -43,26 +43,26 @@ export default class PreloaderScene extends Phaser.Scene {
     const assetText = this.make.text({
       x: width / 2,
       y: height / 2 + 50,
-      text: "",
+      text: '',
       style: {
-        font: "18px monospace",
-        fill: "#ffffff",
+        font: '18px monospace',
+        fill: '#ffffff',
       },
     });
     assetText.setOrigin(0.5, 0.5);
 
-    this.load.on("progress", (value) => {
+    this.load.on('progress', (value) => {
       percentText.setText(`${parseInt(value * 100)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    this.load.on("fileprogress", (file) => {
+    this.load.on('fileprogress', (file) => {
       assetText.setText(`Loading asset: ${file.key}`);
     });
 
-    this.load.on("complete", () => {
+    this.load.on('complete', () => {
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();
@@ -71,52 +71,52 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.load.image("sprBg0", "../src/assets/sprBg0.png");
-    this.load.image("sprBg1", "../src/assets/sprBg1.png");
-    this.load.spritesheet("sprExplosion", "../src/assets/sprExplosion.png", {
+    this.load.image('sprBg0', '../src/assets/sprBg0.png');
+    this.load.image('sprBg1', '../src/assets/sprBg1.png');
+    this.load.spritesheet('sprExplosion', '../src/assets/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet("sprEnemy0", "../src/assets/sprEnemy0.png", {
+    this.load.spritesheet('sprEnemy0', '../src/assets/sprEnemy0.png', {
       frameWidth: 16,
       frameHeight: 16,
     });
-    this.load.image("sprEnemy1", "../src/assets/sprEnemy1.png");
-    this.load.spritesheet("sprEnemy2", "../src/assets/sprEnemy2.png", {
+    this.load.image('sprEnemy1', '../src/assets/sprEnemy1.png');
+    this.load.spritesheet('sprEnemy2', '../src/assets/sprEnemy2.png', {
       frameWidth: 16,
       frameHeight: 16,
     });
-    this.load.image("sprLaserEnemy0", "../src/assets/sprLaserEnemy0.png");
-    this.load.image("sprLaserPlayer", "../src/assets/sprLaserPlayer.png");
-    this.load.spritesheet("sprPlayer", "../src/assets/sprPlayer.png", {
+    this.load.image('sprLaserEnemy0', '../src/assets/sprLaserEnemy0.png');
+    this.load.image('sprLaserPlayer', '../src/assets/sprLaserPlayer.png');
+    this.load.spritesheet('sprPlayer', '../src/assets/sprPlayer.png', {
       frameWidth: 16,
       frameHeight: 16,
     });
-    this.load.audio("sndExplode0", "../src/assets/sndExplode0.wav");
-    this.load.audio("sndExplode1", "../src/assets/sndExplode1.wav");
-    this.load.audio("sndLaser", "../src/assets/sndLaser.wav");
-    this.load.image("highScore", "../src/assets/highscore.png");
-    this.load.image("Btnback", "../src/assets/btnBack.png");
-    this.load.image("Btnbackhover", "../src/assets/btnBackHover.png");
-    this.load.image("blueButton1", "../src/assets/ui/blue_button02.png");
-    this.load.image("blueButton2", "../src/assets/ui/blue_button03.png");
-    this.load.image("box", "../src/assets/ui/grey_box.png");
-    this.load.image("checkedBox", "../src/assets/ui/blue_boxCheckmark.png");
-    this.load.image("background", "../src/assets/forest-bg.png");
-    this.load.audio("bgMusic", "../src/assets/TownTheme.mp3");
+    this.load.audio('sndExplode0', '../src/assets/sndExplode0.wav');
+    this.load.audio('sndExplode1', '../src/assets/sndExplode1.wav');
+    this.load.audio('sndLaser', '../src/assets/sndLaser.wav');
+    this.load.image('highScore', '../src/assets/highscore.png');
+    this.load.image('Btnback', '../src/assets/btnBack.png');
+    this.load.image('Btnbackhover', '../src/assets/btnBackHover.png');
+    this.load.image('blueButton1', '../src/assets/ui/blue_button02.png');
+    this.load.image('blueButton2', '../src/assets/ui/blue_button03.png');
+    this.load.image('box', '../src/assets/ui/grey_box.png');
+    this.load.image('checkedBox', '../src/assets/ui/blue_boxCheckmark.png');
+    this.load.image('background', '../src/assets/forest-bg.png');
+    this.load.audio('bgMusic', '../src/assets/TownTheme.mp3');
 
-    this.load.image("gameOverTitle", "../src/assets/gameover.png");
-    this.load.image("sprImg", "../src/assets/destroyedShip.png");
-    this.load.image("BtnPlay", "../src/assets/BtnPlay.png");
-    this.load.image("BtnPlayHover", "../src/assets/BtnPlayHover.png");
-    this.load.image("BtnPlayDown", "../src/assets/BtnPlayDown.png");
+    this.load.image('gameOverTitle', '../src/assets/gameover.png');
+    this.load.image('sprImg', '../src/assets/destroyedShip.png');
+    this.load.image('BtnPlay', '../src/assets/BtnPlay.png');
+    this.load.image('BtnPlayHover', '../src/assets/BtnPlayHover.png');
+    this.load.image('BtnPlayDown', '../src/assets/BtnPlayDown.png');
   }
 
   ready() {
-    this.scene.start("Title");
+    this.scene.start('Title');
     this.readyCount++;
     if (this.readyCount === 2) {
-      this.scene.start("Title");
+      this.scene.start('Title');
     }
   }
 }

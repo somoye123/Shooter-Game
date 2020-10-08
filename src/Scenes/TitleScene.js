@@ -1,11 +1,11 @@
 /* eslint-disable no-undef, class-methods-use-this,import/extensions */
-import "phaser";
-import config from "../Config/config";
-import Button from "../Objects/Button.js";
+import 'phaser';
+import config from '../Config/config';
+import Button from '../Objects/Button.js';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
-    super("Title");
+    super('Title');
   }
 
   create() {
@@ -13,45 +13,45 @@ export default class TitleScene extends Phaser.Scene {
       this,
       config.width / 2,
       config.height / 2 - 100,
-      "blueButton1",
-      "blueButton2",
-      "Play",
-      "Game"
+      'blueButton1',
+      'blueButton2',
+      'Play',
+      'Game',
     );
 
     this.optionsButton = new Button(
       this,
       config.width / 2,
       config.height / 2,
-      "blueButton1",
-      "blueButton2",
-      "Options",
-      "Options"
+      'blueButton1',
+      'blueButton2',
+      'Options',
+      'Options',
     );
 
     this.creditsButton = new Button(
       this,
       config.width / 2,
       config.height / 2 + 100,
-      "blueButton1",
-      "blueButton2",
-      "Credits",
-      "Credits"
+      'blueButton1',
+      'blueButton2',
+      'Credits',
+      'Credits',
     );
 
     this.leaderboardButton = new Button(
       this,
       config.width / 2,
       config.height / 2 + 230,
-      "blueButton1",
-      "blueButton2",
-      "Scoreboard",
-      "Leaderboard"
+      'blueButton1',
+      'blueButton2',
+      'Scoreboard',
+      'Leaderboard',
     );
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
-      this.bgMusic = this.sound.add("bgMusic", { volume: 0.5, loop: true });
+      this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();
       this.model.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
@@ -65,8 +65,8 @@ export default class TitleScene extends Phaser.Scene {
         config.width / 2,
         config.height / 2 - offset * 100,
         config.width,
-        config.height
-      )
+        config.height,
+      ),
     );
   }
 
