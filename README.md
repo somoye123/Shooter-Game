@@ -12,7 +12,7 @@ Implementation of a Space Shooter Game built with the [Phaser 3](https://phaser.
 
 The main objective of this project was to design and build a platform game. The basics of the game are used from the [Space Shooter Game](https://learn.yorkcs.com/category/tutorials/gamedev/phaser-3/build-a-space-shooter-with-phaser-3/) using Phaser and Javascript among other technologies.
 
-Live version of the project: [Live version](https://cat-gun.netlify.app/)
+Live version of the project: [Live version](https://guns-of-boom.netlify.app/)
 
 Project Link: [Javascript-Capstone](https://github.com/somoye123/Shooter-Game)
 
@@ -30,7 +30,7 @@ _npm required_ - [get npm](https://www.npmjs.com/get-npm)
 
 ### Installation
 
-You can always use the [live version](https://endless-run.netlify.app/) to play right away or install it locally using these steps:
+You can always use the [live version](https://guns-of-boom.netlify.app/) to play right away or install it locally using these steps:
 
 **Clone the repository by running this command in your terminal**
 
