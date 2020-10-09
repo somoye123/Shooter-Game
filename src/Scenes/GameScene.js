@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default, import/no-named-as-default-member */
 import Phaser from 'phaser';
 import Player from '../Entities/Player';
 import ChaserShip from '../Entities/ChaserShip';

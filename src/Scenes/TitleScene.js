@@ -1,7 +1,7 @@
-/* eslint-disable no-undef, class-methods-use-this,import/extensions */
-import 'phaser';
+/* eslint-disable class-methods-use-this */
+import Phaser from 'phaser';
 import config from '../Config/config';
-import Button from '../Objects/Button.js';
+import Button from '../Objects/Button';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {

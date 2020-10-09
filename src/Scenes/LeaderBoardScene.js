@@ -1,5 +1,4 @@
-/* eslint-disable no-undef,import/extensions */
-import 'phaser';
+import Phaser from 'phaser';
 import { getData } from '../apiData';
 import '@babel/polyfill';
 
@@ -60,8 +59,6 @@ export default class LeaderboardScene extends Phaser.Scene {
           wordWrap: { width: 310 },
         })
         .setOrigin(0);
-
-      text.setMask(mask);
 
       const zone = this.add
         .zone(100, 300, 320, 256)
