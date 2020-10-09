@@ -1,32 +1,34 @@
-import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
+/* eslint-disable import/no-cycle */
+import Phaser from 'phaser';
+import config from './Config/config';
+import GameScene from './Scenes/GameScene';
+import PreloaderScene from './Scenes/PreloaderScene';
+import LeaderboardScene from './Scenes/LeaderBoardScene';
+import TitleScene from './Scenes/TitleScene';
+import OptionsScene from './Scenes/OptionsScene';
+import CreditsScene from './Scenes/CreditsScene';
+import GameOverScene from './Scenes/GameOverScene';
+import Model from './Model';
+import { setUser } from './user/user';
+import './user/dom';
 
-const config = {
-  type: Phaser.AUTO,
-  parent: "phaser-example",
-  width: 800,
-  height: 600,
-  scene: {
-    preload: preload,
-    create: create
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    const model = new Model();
+    this.globals = { model, bgMusic: null };
+    this.scene.add('Preloader', PreloaderScene);
+    this.scene.add('Title', TitleScene);
+    this.scene.add('Options', OptionsScene);
+    this.scene.add('Credits', CreditsScene);
+    this.scene.add('Leaderboard', LeaderboardScene);
+    this.scene.add('Game', GameScene);
+    this.scene.add('GameOver', GameOverScene);
+    this.scene.start('Preloader');
   }
+}
+
+export default (user) => {
+  setUser(user);
+  window.game = new Game();
 };
-
-const game = new Phaser.Game(config);
-
-function preload() {
-  this.load.image("logo", logoImg);
-}
-
-function create() {
-  const logo = this.add.image(400, 150, "logo");
-
-  this.tweens.add({
-    targets: logo,
-    y: 450,
-    duration: 2000,
-    ease: "Power2",
-    yoyo: true,
-    loop: -1
-  });
-}

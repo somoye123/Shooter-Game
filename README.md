@@ -1,55 +1,149 @@
-# Phaser 3 Webpack Project Template
+# Javascript-Capstone Project: Build a Shooter Game
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+<h1 align="center">
+  Guns Of Boom
+</h1>
 
-Loading images via JavaScript module `import` is also supported.
+> Final project in the Microverse JavaScript Curriculum
 
-## Requirements
+Implementation of a Space Shooter Game built with the [Phaser 3](https://phaser.io/phaser3) framework
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+## About The Project
 
-## Available Commands
+The main objective of this project was to design and build a platform game. The basics of the game are used from the [Space Shooter Game](https://learn.yorkcs.com/category/tutorials/gamedev/phaser-3/build-a-space-shooter-with-phaser-3/) using Phaser and Javascript among other technologies.
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+Live version of the project: [Live version](https://guns-of-boom.netlify.app/)
 
-## Writing Code
+Project Link: [Javascript-Capstone](https://github.com/somoye123/Shooter-Game)
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
+## The game
 
+In this never-ending game, you will face different enemies at random times, and you have to use your laser to make them explode. Every enemy gives you a different score point, and you need to avoid getting hit by their lasers or overlap with one of them. When the game is over , the user can restart the game.
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
+### How to Play
 
-## Customizing Template
+- Input your name on the first page and click the submit button, There is a menu on the next page which are Play, Options, Credits and Scoreboard. You can disable the sound in the options menu. Click on the play menu to start your game. You can move around the screen using the arrow keys and use the Space Bar to shoot whenever you see an enemy. Happy gaming!
 
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+#### Get a local copy
 
-  ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
-  ```
+_npm required_ - [get npm](https://www.npmjs.com/get-npm)
 
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+### Installation
 
-## Deploying Code
-After you run the `npm run build` command, your code will be built into a single bundle located at 
-`dist/bundle.min.js` along with any other assets you project depended. 
+You can always use the [live version](https://guns-of-boom.netlify.app/) to play right away or install it locally using these steps:
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+**Clone the repository by running this command in your terminal**
+
+```
+git clone https://github.com/somoye123/Shooter-Game
+```
+
+**Navigate into the newly created folder**
+
+```
+cd Shooter-Game
+```
+
+#### Get the dependencies needed for the game
+
+`$ npm install`
+
+#### Start the server
+
+`$ npm start`
+
+**Visit this link to see the game in your browser**
+
+```
+http://localhost:8080/
+```
+
+**Run Jest tests**
+
+```
+npm run test
+```
+
+### Characters
+
+* Player: <div ><img src="src/assets/sprPlayer.png"></div>
+It can move at 4 directions, and use the space bar to shoot it enemies.
+
+* Enemy 1 : <div ><img src="src/assets/sprEnemy0.png"></div>
+Gun Ship: It will appear randomly shooting lasers. You receive +10 every time you make it explode.
+
+* Enemy 2:  <div ><img src="src/assets/sprEnemy2.png"></div>
+Carrier Ship: It will appear at a random velocity and location shooting lasers. You will receive +25 points every time you shoot one successfully
+
+* Enemy 3: <div ><img src="src/assets/sprEnemy1.png"></div>
+Chaser Ship: It will chase you through all the game. You will receive +15 points every time you destroy one.
+
+### Scenes
+
+**Landing Scene**
+
+<p align="center">
+  <img src="./src/assets/landing-scene.PNG">
+</p>
+
+**Game Scene**
+
+<p align="center">
+  <img src="./src/assets/game-scene.png">
+</p>
+
+**Credits Scene**
+
+<p align="center">
+  <img src="./src/assets/credits-scene.png">
+</p>
+
+**Leaderboard Scene**
+
+<p align="center">
+  <img src="./src/assets/leaderboard-scene.png">
+</p>
+
+**Game Over Scene**
+
+<p align="center">
+  <img src="./src/assets/game-over-scene.png">
+</p>
+
+## Technologies used
+
+- HTML5/CSS
+- Phaser 3
+- Webpack
+- Javascript
+- Eslint
+- Babel
+- Jest for testing
+- [Netlify](https://www.netlify.com/) for deployment
+- [Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) for high scores
+
+## Author
+
+👤 **Somoye Ayotunde**
+
+- Github:[@somoye123](https://github.com/somoye123)
+- Twitter:[@ayotunde_197](https://twitter.com/ayotunde_197)
+- LinkedIn:[Somoye Ayotunde](https://www.linkedin.com/in/somoye-ayotunde-03a471161)
+- Mail: [somoye.ayotunde@gmail.com](somoye.ayotunde@gmail.com)
+
+## Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/somoye123/Shooter-Game/issues).
+
+## Show your Support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- [Phaser](https://phaser.io/)
+- [OpenGameArt](https://opengameart.org/)
+- [https://learn.yorkcs.com/](https://learn.yorkcs.com/)
