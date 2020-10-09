@@ -50,7 +50,7 @@ cd Shooter-Game
 
 #### Start the server
 
-`$ npm run start`
+`$ npm start`
 
 **Visit this link to see the game in your browser**
 
@@ -63,6 +63,20 @@ http://localhost:8080/
 ```
 npm run test
 ```
+
+### Characters
+
+* Player: <div ><img src="src/assets/sprPlayer.png"></div>
+It can move at 4 directions, and use the space bar to shoot it enemies.
+
+* Enemy 1 : <div ><img src="src/assets/sprEnemy0.png"></div>
+Gun Ship: It will appear randomly shooting lasers. You receive +10 every time you make it explode.
+
+* Enemy 2:  <div ><img src="src/assets/sprEnemy2.png"></div>
+Carrier Ship: It will appear at a random velocity and location shooting lasers. You will receive +25 points every time you shoot one successfully
+
+* Enemy 3: <div ><img src="src/assets/sprEnemy1.png"></div>
+Chaser Ship: It will chase you through all the game. You will receive +15 points every time you destroy one.
 
 ### Scenes
 
